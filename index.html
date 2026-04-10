@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soluciones Empresariales | Capacitaciones y Coaching</title>
+    
+    <!-- Tailwind CSS para el diseño rápido y responsivo -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2D8C5A', // Verde Oscuro
+                        secondary: '#82C341', // Verde Claro
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                        serif: ['Merriweather', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Iconos de Lucide -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f9fafb;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        /* Transición suave para la imagen de fondo */
+        #visual-bg {
+            transition: opacity 0.4s ease-in-out, transform 10s linear;
+        }
+
+        /* Animación para las tarjetas de texto (Scrollytelling) */
+        .step {
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Animación del indicador de scroll */
+        @keyframes bounce-slow {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(15px); }
+        }
+        .animate-bounce-slow {
+            animation: bounce-slow 2s infinite;
+        }
+
+        /* Estilo de la barra de desplazamiento */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #82C341;
+            border-radius: 5px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #2D8C5A;
+        }
+    </style>
+</head>
+<body class="antialiased text-gray-800">
+
+    <!-- HERO SECTION (Inicio) -->
+    <header class="relative h-screen w-full flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1920&q=80" alt="Equipo corporativo" class="w-full h-full object-cover filter brightness-50">
+        </div>
+        <div class="relative z-10 text-center px-6 max-w-4xl mx-auto">
+            <div class="inline-block bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-4 py-1 mb-6 text-white text-sm font-semibold tracking-wider uppercase">
+                Expertos en Desarrollo Humano
+            </div>
+            <h1 class="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
+                Soluciones <span class="text-secondary">Empresariales</span>®
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-200 mb-10 font-light">
+                ¡Los expertos ideales para el crecimiento y desarrollo profesional y personal de los colaboradores!
+            </p>
+            <a href="#historia" class="inline-flex items-center gap-2 bg-primary hover:bg-secondary text-white font-semibold py-4 px-8 rounded-full transition-colors duration-300 shadow-lg">
+                Comenzar el recorrido
+                <i data-lucide="arrow-down" class="w-5 h-5"></i>
+            </a>
+        </div>
+        
+        <!-- Scroll indicator -->
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-10 text-white flex flex-col items-center animate-bounce-slow opacity-70">
+            <span class="text-sm tracking-widest uppercase mb-2">Desliza</span>
+            <i data-lucide="chevron-down" class="w-8 h-8"></i>
+        </div>
+    </header>
+
+    <!-- ZONA DE SCROLLYTELLING -->
+    <main id="historia" class="relative w-full">
+        
+        <!-- Capa Visual Fija (Fondo) -->
+        <div class="fixed top-0 left-0 w-full md:w-1/2 h-screen z-0 bg-gray-900 hidden md:block" id="desktop-visual-container">
+            <img id="visual-bg" src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=1000&q=80" alt="Fondo dinámico" class="w-full h-full object-cover opacity-100">
+            <div class="absolute inset-0 bg-gradient-to-r from-black/40 to-transparent"></div>
+        </div>
+        
+        <!-- Capa Visual Fija (Móvil) -->
+        <div class="fixed top-0 left-0 w-full h-screen z-0 bg-gray-900 md:hidden" id="mobile-visual-container">
+            <img id="visual-bg-mobile" src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=800&q=80" alt="Fondo dinámico" class="w-full h-full object-cover opacity-100">
+            <div class="absolute inset-0 bg-black/60"></div>
+        </div>
+
+        <!-- Capa de Contenido Narrativo (Scroll) -->
+        <div class="relative z-10 w-full flex justify-end">
+            <div class="w-full md:w-1/2">
+                
+                <!-- PASO 1: Quiénes Somos -->
+                <article class="step min-h-screen flex items-center justify-center p-6 md:p-12 opacity-50 scale-95" 
+                         data-img="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=1000&q=80">
+                    <div class="bg-white/95 backdrop-blur-sm md:bg-white p-8 md:p-12 rounded-3xl shadow-2xl border-l-8 border-primary max-w-lg">
+                        <div class="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-6 text-primary">
+                            <i data-lucide="building-2" class="w-8 h-8"></i>
+                        </div>
+                        <h2 class="text-3xl font-bold text-gray-900 mb-4">¿Quiénes somos?</h2>
+                        <p class="text-gray-600 leading-relaxed mb-4">
+                            Nos consolidamos como una consultora referente en el impacto y crecimiento de colaboradores de alto desempeño, respaldados por una sólida trayectoria de <strong>más de 25 años de experiencia</strong>.
+                        </p>
+                        <p class="text-gray-600 leading-relaxed">
+                            Nuestra metodología garantiza los más altos niveles de conexión y satisfacción. Somos especialistas en Capacitaciones Corporativas y sesiones "One to One".
+                        </p>
+                    </div>
+                </article>
+
+                <!-- PASO 2: Coaching y Mentoring -->
+                <article class="step min-h-screen flex items-center justify-center p-6 md:p-12 opacity-50 scale-95" 
+                         data-img="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=1000&q=80">
+                    <div class="bg-white/95 backdrop-blur-sm md:bg-white p-8 md:p-12 rounded-3xl shadow-2xl border-l-8 border-secondary max-w-lg">
+                        <div class="w-16 h-16 bg-secondary/10 rounded-2xl flex items-center justify-center mb-6 text-secondary">
+                            <i data-lucide="users" class="w-8 h-8"></i>
+                        </div>
+                        <h2 class="text-3xl font-bold text-gray-900 mb-4">Coaching & Mentoring</h2>
+                        <p class="text-gray-600 leading-relaxed mb-4">
+                            Sesiones <strong>One to One</strong> diseñadas para Gerentes, Jefes, Supervisores y Colaboradores.
+                        </p>
+                        <ul class="space-y-3 mb-6">
+                            <li class="flex items-start text-gray-600"><i data-lucide="check-circle-2" class="w-5 h-5 text-secondary mr-3 flex-shrink-0 mt-0.5"></i> Desarrollo de Soft Skills y Motivación.</li>
+                            <li class="flex items-start text-gray-600"><i data-lucide="check-circle-2" class="w-5 h-5 text-secondary mr-3 flex-shrink-0 mt-0.5"></i> Estrategias avanzadas en Ventas B2B & B2C.</li>
+                            <li class="flex items-start text-gray-600"><i data-lucide="check-circle-2" class="w-5 h-5 text-secondary mr-3 flex-shrink-0 mt-0.5"></i> Optimización de Customer Experience (CX).</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <!-- PASO 3: Terapias -->
+                <article class="step min-h-screen flex items-center justify-center p-6 md:p-12 opacity-50 scale-95" 
+                         data-img="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=1000&q=80">
+                    <div class="bg-white/95 backdrop-blur-sm md:bg-white p-8 md:p-12 rounded-3xl shadow-2xl border-l-8 border-primary max-w-lg">
+                        <div class="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-6 text-primary">
+                            <i data-lucide="heart-handshake" class="w-8 h-8"></i>
+                        </div>
+                        <h2 class="text-3xl font-bold text-gray-900 mb-4">Servicio de Terapias</h2>
+                        <p class="text-gray-600 leading-relaxed mb-4">
+                            Porque sabemos que un colaborador equilibrado es un colaborador productivo. Ofrecemos un espacio seguro y confidencial.
+                        </p>
+                        <p class="text-gray-600 leading-relaxed">
+                            Nuestros especialistas en el campo del desarrollo humano trabajan el fortalecimiento del bienestar emocional, permitiendo al profesional superar bloqueos y alcanzar su máximo potencial.
+                        </p>
+                    </div>
+                </article>
+
+                <!-- PASO 4: Capacitaciones -->
+                <article class="step min-h-screen flex items-center justify-center p-6 md:p-12 opacity-50 scale-95" 
+                         data-img="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=1000&q=80">
+                    <div class="bg-white/95 backdrop-blur-sm md:bg-white p-8 md:p-12 rounded-3xl shadow-2xl border-l-8 border-secondary max-w-lg">
+                        <div class="w-16 h-16 bg-secondary/10 rounded-2xl flex items-center justify-center mb-6 text-secondary">
+                            <i data-lucide="presentation" class="w-8 h-8"></i>
+                        </div>
+                        <h2 class="text-3xl font-bold text-gray-900 mb-4">Capacitaciones Vivenciales</h2>
+                        <h3 class="text-xl font-semibold text-primary mb-3">Presenciales y Virtuales</h3>
+                        <p class="text-gray-600 leading-relaxed mb-4">
+                            Llevamos el aprendizaje a la acción. Contamos con dinámicas inmersivas adaptadas a las necesidades de tu empresa.
+                        </p>
+                        <p class="text-gray-600 leading-relaxed">
+                            Abarcamos la Gestión, Seguridad y Salud Ocupacional (SSO) y la formación integral de equipos mediante recursos virtuales, videos y sesiones presenciales de alto impacto.
+                        </p>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <!-- SECCIÓN DE CONTACTO / ENCUESTA -->
+    <section class="relative z-20 bg-white py-24 border-t border-gray-100">
+        <div class="max-w-5xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+            
+            <!-- Texto de llamada a la acción -->
+            <div>
+                <h2 class="text-4xl font-bold text-gray-900 mb-6">Impulsa el talento de tu equipo hoy.</h2>
+                <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+                    Completa esta breve encuesta y un experto de nuestro <strong>Senior Staff</strong> se contactará contigo para diseñar un plan a la medida de tu organización.
+                </p>
+                <div class="flex items-center gap-4 text-gray-700 mb-4">
+                    <div class="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center text-primary">
+                        <i data-lucide="mail"></i>
+                    </div>
+                    <div>
+                        <p class="text-sm text-gray-500">Escríbenos a</p>
+                        <p class="font-semibold">contacto@solucionesempresariales.com</p>
+                    </div>
+                </div>
+                <div class="flex items-center gap-4 text-gray-700">
+                    <div class="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center text-secondary">
+                        <i data-lucide="phone"></i>
+                    </div>
+                    <div>
+                        <p class="text-sm text-gray-500">Llámanos</p>
+                        <p class="font-semibold">+51 (01) 555-1234</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Formulario -->
+            <div class="bg-white p-8 rounded-3xl shadow-xl border border-gray-100 relative">
+                
+                <!-- Mensaje de éxito oculto por defecto -->
+                <div id="success-message" class="hidden absolute inset-0 bg-white/95 backdrop-blur-sm rounded-3xl flex flex-col items-center justify-center p-8 text-center z-10">
+                    <div class="w-20 h-20 bg-green-100 text-primary rounded-full flex items-center justify-center mb-6">
+                        <i data-lucide="check-circle" class="w-10 h-10"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-2">¡Datos enviados!</h3>
+                    <p class="text-gray-600">Nos pondremos en contacto contigo a la brevedad para asesorarte.</p>
+                    <button onclick="resetForm()" class="mt-8 text-primary font-semibold hover:underline">Enviar otra consulta</button>
+                </div>
+
+                <form id="contact-form" class="space-y-5">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Nombre Completo</label>
+                        <input type="text" required class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all" placeholder="Ej. Juan Pérez">
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Correo Electrónico Corporativo</label>
+                        <input type="email" required class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all" placeholder="ejemplo@empresa.com">
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Empresa</label>
+                        <input type="text" required class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all" placeholder="Nombre de tu organización">
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Servicio de Interés</label>
+                        <select required class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all bg-white">
+                            <option value="">Selecciona una opción...</option>
+                            <option value="coaching">Coaching & Mentoring</option>
+                            <option value="terapias">Terapias Individuales</option>
+                            <option value="capacitaciones_presenciales">Capacitaciones Presenciales</option>
+                            <option value="capacitaciones_virtuales">Servicios Virtuales</option>
+                            <option value="otro">Consultoría General / Otro</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="w-full bg-gradient-to-r from-primary to-secondary text-white font-semibold py-4 rounded-xl shadow-lg hover:shadow-xl hover:opacity-90 transition-all transform hover:-translate-y-1">
+                        Solicitar Contacto
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-gray-900 text-gray-400 py-8 text-center text-sm relative z-20">
+        <div class="max-w-4xl mx-auto px-6">
+            <p class="mb-2 font-semibold text-gray-300">© 2026 Soluciones Empresariales® - Todos los derechos reservados.</p>
+            <div class="w-16 h-1 bg-gray-700 mx-auto my-4 rounded-full"></div>
+            <p class="italic">Creado con IA como herramienta de apoyo educativo.</p>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        // Inicializar Iconos de Lucide
+        lucide.createIcons();
+
+        // ----------------------------------------------------
+        // Lógica de Scrollytelling (Cambio de imágenes al leer)
+        // ----------------------------------------------------
+        document.addEventListener("DOMContentLoaded", () => {
+            const steps = document.querySelectorAll('.step');
+            const bgImageDesktop = document.getElementById('visual-bg');
+            const bgImageMobile = document.getElementById('visual-bg-mobile');
+            
+            // Pre-cargar imágenes para evitar parpadeos
+            const imagesToPreload = Array.from(steps).map(step => step.getAttribute('data-img'));
+            imagesToPreload.forEach(src => {
+                const img = new Image();
+                img.src = src;
+            });
+
+            // Configuración del Observador de Intersección
+            const observerOptions = {
+                root: null,
+                // Dispara cuando el elemento está en el centro de la pantalla
+                rootMargin: '-40% 0px -40% 0px', 
+                threshold: 0
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const newImgSrc = entry.target.getAttribute('data-img');
+                        
+                        // Actualizar imagen en Desktop
+                        if (bgImageDesktop.src !== newImgSrc) {
+                            bgImageDesktop.style.opacity = '0.3'; // Efecto fade out suave
+                            setTimeout(() => {
+                                bgImageDesktop.src = newImgSrc;
+                                bgImageDesktop.style.opacity = '1';
+                            }, 400);
+                        }
+
+                        // Actualizar imagen en Mobile
+                        if (bgImageMobile.src !== newImgSrc) {
+                            bgImageMobile.style.opacity = '0.3';
+                            setTimeout(() => {
+                                bgImageMobile.src = newImgSrc;
+                                bgImageMobile.style.opacity = '1';
+                            }, 400);
+                        }
+
+                        // Destacar el texto actual y atenuar los demás
+                        steps.forEach(s => {
+                            s.classList.remove('opacity-100', 'scale-100');
+                            s.classList.add('opacity-40', 'scale-95'); // Atenuado
+                        });
+                        
+                        entry.target.classList.remove('opacity-40', 'scale-95');
+                        entry.target.classList.add('opacity-100', 'scale-100'); // Resaltado
+                    }
+                });
+            }, observerOptions);
+
+            // Observar cada sección de texto
+            steps.forEach(step => observer.observe(step));
+
+            // ----------------------------------------------------
+            // Lógica del Formulario
+            // ----------------------------------------------------
+            const form = document.getElementById('contact-form');
+            const successMsg = document.getElementById('success-message');
+
+            form.addEventListener('submit', (e) => {
+                e.preventDefault(); // Evita recargar la página
+                
+                // Animación de envío (simulada)
+                const btn = form.querySelector('button[type="submit"]');
+                const originalText = btn.innerHTML;
+                btn.innerHTML = '<i data-lucide="loader-2" class="w-5 h-5 animate-spin mx-auto"></i>';
+                lucide.createIcons();
+                
+                setTimeout(() => {
+                    // Mostrar mensaje de éxito tras "enviar"
+                    form.reset();
+                    btn.innerHTML = originalText;
+                    successMsg.classList.remove('hidden');
+                }, 1000);
+            });
+        });
+
+        // Función para enviar otra consulta
+        function resetForm() {
+            document.getElementById('success-message').classList.add('hidden');
+        }
+    </script>
+</body>
+</html>
